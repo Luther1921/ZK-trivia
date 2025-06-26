@@ -9,56 +9,67 @@ function shuffle(array) {
 
 const questions = [
   {
-    question: "What is the main purpose of a blockchain?",
+    question:
+      "What cryptographic primitive underpins SP1’s ability to verify Rust program execution?",
     options: [
-      "Store private data",
-      "Ensure transparent and secure transactions",
-      "Run video games",
-      "Host websites",
+      "Merkle trees",
+      "SNARK-friendly hash functions",
+      "zkVMs and constraint systems",
+      "Public-key encryption",
     ],
-    correct: 1,
+    correct: 2,
     explanation:
-      "A blockchain ensures transparent and secure transactions by maintaining a decentralized, tamper-resistant ledger.",
-  },
-  {
-    question: "What does 'ZK' stand for in zk-SNARK?",
-    options: ["Zero Knowledge", "Zipped Key", "Zone Keeper", "Zigzag Knot"],
-    correct: 0,
-    explanation:
-      "ZK stands for Zero Knowledge, a cryptographic method to prove a statement without revealing details.",
+      "SP1 compiles Rust code into constraint systems for zk proving within its zero-knowledge virtual machine (zkVM).",
   },
   {
     question:
-      "True or False: Zero-knowledge proofs allow verifying information without sharing the actual data.",
-    options: ["True", "False"],
+      "In a zkVM, what is a potential trade-off when prioritizing proof size over proving time, as seen in some SP1 configurations?",
+    options: [
+      "Increased verification time on-chain.",
+      "Higher memory usage during proof generation.",
+      "Reduced compatibility with recursive proofs",
+      "Loss of zero-knowledge properties.",
+    ],
     correct: 0,
     explanation:
-      "True! ZKPs enable proving a statement (e.g., a transaction) is valid without revealing sensitive details, enhancing privacy.",
+      "Optimizing for smaller proof sizes in zkVMs like SP1 can increase computational complexity, leading to longer verification times on-chain, a critical trade-off in blockchain applications where verification speed matter",
+  },
+  {
+    question: "What does SP1 Hypercube optimize for when proving execution?",
+    options: [
+      "On-chain data size",
+      "Interactive proofs",
+      "Latency and throughput",
+      "Key rotation",
+    ],
+    correct: 2,
+    explanation:
+      "SP1 Hypercube is engineered for real-time ZKP throughput, improving proving latency and cost significantly.",
+  },
+  {
+    question: "What kind of applications benefit the most from SP1’s design?",
+    options: [
+      "Web hosting platforms",
+      "Decentralized rollups and provable bridges",
+      "NFT marketplaces",
+      "DeFi wallets",
+    ],
+    correct: 1,
+    explanation:
+      "SP1 enables scalable ZK rollups, fast bridges, and any use case where off-chain logic needs verifiable proofs.",
   },
   {
     question:
-      "What is a key benefit of using zero-knowledge proofs in blockchain?",
+      "What is a primary challenge in implementing zkRollups like SP1 for Ethereum’s zkEVM, impacting smart contract compatibility??",
     options: [
-      "Faster internet",
-      "Private transactions",
-      "More storage",
-      "Better graphics",
+      "High computational cost of generating ZKPs for EVM opcodes.",
+      "Inability to support recursive proofs in zkEVM",
+      "Lack of data availability on Layer 1.",
+      "Requirement for a challenge period like Optimistic Rollups.",
     ],
-    correct: 1,
+    correct: 0,
     explanation:
-      "ZKPs allow private transactions by verifying data without exposing it, improving blockchain privacy and scalability.",
-  },
-  {
-    question: "What type of technology is Succinct Labs primarily focused on?",
-    options: [
-      "Artificial Intelligence",
-      "Zero-Knowledge Proofs",
-      "Cloud Storage",
-      "Virtual Reality",
-    ],
-    correct: 1,
-    explanation:
-      "Succinct Labs focuses on zero-knowledge proofs, building tools like SP1 to make ZKPs accessible for developers.",
+      "Generating zero-knowledge proofs for EVM opcodes in zkRollups like SP1 is computationally intensive, making full EVM compatibility challenging due to the complexity of proving arbitrary code. SP1’s precompiles help, but it’s still a hurdle! No challenge periods here, unlike Optimistic Rollups.",
   },
   {
     question: "What is SP1, developed by Succinct Labs?",
@@ -86,11 +97,16 @@ const questions = [
   },
   {
     question:
-      "Which programming language does Succinct Labs’ SP1 primarily use for ZKP development?",
-    options: ["Python", "Rust", "JavaScript", "Solidity"],
-    correct: 1,
+      "What is a key limitation of using non-recursive zkSNARKs in a zkVM like SP1 for real-world blockchain applications?",
+    options: [
+      "They require trusted setups, which can compromise security.",
+      "They cannot handle dynamic loops in smart contracts.",
+      "They are inherently slower than recursive zkSNARKs for proof aggregation.",
+      "They do not support elliptic curve operations.",
+    ],
+    correct: 0,
     explanation:
-      "SP1 allows developers to write ZKPs in Rust, making it easier to create proofs without learning new languages.",
+      "Non-recursive zkSNARKs often rely on trusted setups, introducing potential security risks, unlike recursive systems like Plonky3 (used by SP1), which can avoid this while enabling efficient proof aggregation for blockchain use cases.",
   },
   {
     question: "What is a zk-SNARK?",
@@ -106,11 +122,16 @@ const questions = [
   },
   {
     question:
-      "True or False: Succinct Labs’ Prover Network is centralized and controlled by a single entity.",
-    options: ["True", "False"],
-    correct: 1,
+      "What architectural feature helps SP1 outperform other zkVMs for real-world use cases?",
+    options: [
+      "Precompile-centric design",
+      "AI-powered proof generation",
+      "Cloud-based recursion",
+      "Manual circuit writing",
+    ],
+    correct: 0,
     explanation:
-      "False! Succinct Labs’ Prover Network is decentralized, coordinating multiple provers to generate ZKPs for anyone.",
+      "SP1’s performance edge over other zkVMs, like RISC0, primarily stems from its precompile-centric architecture",
   },
   {
     question: "What is a key difference between zk-SNARKs and zk-STARKs?",
@@ -150,11 +171,16 @@ const questions = [
   },
   {
     question:
-      "Which blockchain does Succinct Labs’ Prover Network primarily integrate with?",
-    options: ["Bitcoin", "Ethereum", "Solana", "Cardano"],
-    correct: 1,
+      "How much faster can SP1 be for certain programs compared to other zkVMs?",
+    options: [
+      "Up to 5x",
+      "Up to 10x",
+      "Up to 28x",
+      "Not faster, just prettier",
+    ],
+    correct: 2,
     explanation:
-      "Succinct Labs’ Prover Network is built on Ethereum, enabling ZKP-based interoperability and applications.",
+      "SP1, developed by Succinct Labs, can be up to 28x faster than other zkVMs, such as RISC0, for specific programs",
   },
   {
     question: "What does 'non-interactive' mean in the context of zk-SNARKs?",
