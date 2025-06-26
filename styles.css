@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap");
+
+body {
+  font-family: "JetBrains Mono", monospace;
+  margin: 0;
+  padding: 20px;
+  background-color: #0d0d0d;
+  color: #f0f0f0;
+  text-align: center;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 255, 170, 0.1);
+}
+
+.logo {
+  max-width: 100px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+h1 {
+  color: #00ffaa;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.byline a {
+  color: #00ffaa;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.byline a:hover {
+  text-decoration: underline;
+}
+
+#game {
+  margin-top: 20px;
+}
+
+#question {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+#progress {
+  width: 100%;
+  height: 12px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: #333;
+  accent-color: #00ffaa;
+}
+
+.options button {
+  display: block;
+  width: 90%;
+  margin: 12px auto;
+  padding: 12px;
+  font-size: 1em;
+  background: #00ffaa;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.options button:hover {
+  background: #00ddaa;
+  transform: scale(1.02);
+}
+
+.options button:disabled {
+  background: #666;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.feedback {
+  min-height: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+.feedback.correct {
+  color: #00ffaa;
+}
+
+.feedback.incorrect {
+  color: #ff4c4c;
+}
+
+.status {
+  margin-top: 10px;
+  color: #ccc;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  background: #00ffaa;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.buttons button:hover {
+  background: #00e6a6;
+}
+
+.buttons button:disabled {
+  background: #444;
+  color: #999;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 12px;
+  }
+
+  .options button {
+    width: 95%;
+  }
+}
