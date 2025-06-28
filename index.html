@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <title>ZK Trivia Quest – Succinct Labs</title>
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -12,20 +15,28 @@
   </head>
   <body>
     <div class="container">
-      <img src="succinct-logo.jpg" alt="Succinct Labs Logo" class="logo" />
+      <img src="Succinct Icon Pink.svg" alt="Succinct Labs Logo" class="logo" />
       <h1>ZK Trivia Quest</h1>
       <p class="byline">
         By
         <a href="https://x.com/succinctlabs" target="_blank">@succinctlabs</a>
       </p>
 
-      <div id="game">
+      <!-- Start Screen -->
+      <div id="start-screen">
+        <p>Enter your name to begin:</p>
+        <input type="text" id="player-name" placeholder="Your name" />
+        <div class="start-buttons">
+          <button id="start-btn">▶️ Start Game</button>
+          <button id="view-leaderboard-btn">🏆 View Leaderboard</button>
+        </div>
+      </div>
+
+      <!-- Game -->
+      <div id="game" style="display: none">
         <h2 id="question">Loading question...</h2>
-
         <progress id="progress" max="15" value="0"></progress>
-
         <div id="options" class="options"></div>
-
         <p id="feedback" class="feedback"></p>
 
         <div class="status">
@@ -42,8 +53,19 @@
           <button id="reset-btn">🔁 Reset Game</button>
         </div>
       </div>
+
+      <!-- Leaderboard -->
+      <div id="leaderboard" style="display: none">
+        <h2>🏆 Leaderboard</h2>
+        <ul id="leaderboard-list"></ul>
+        <div class="buttons">
+          <button id="back-to-start-btn" class="back-btn">
+            ← Back to Start
+          </button>
+        </div>
+      </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
