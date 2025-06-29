@@ -110,16 +110,17 @@ const questions = [
       "SP1 is a high-performance, open-source zkVM that proves the execution of Rust programs, enabling ZKP applications.",
   },
   {
-    question: "What does 'Succinct' in Succinct Labs likely refer to?",
+    question:
+      "What decentralization challenge does SP1 Hypercube face when scaling its prover network for Ethereum proof generation?",
     options: [
-      "Complex proofs",
-      "Fast and efficient proofs",
-      "Large blockchains",
-      "Public keys",
+      "Inability to distribute proof generation across multiple nodes.",
+      "High hardware costs (~$100k–$300k for ~160 GPUs) limit prover participation.",
+      "Dependence on Ethereum’s Layer 1 for prover coordination.",
+      "Requirement for trusted setups in its proof system.",
     ],
     correct: 1,
     explanation:
-      "'Succinct' refers to fast, efficient ZKPs, like those in zk-SNARKs, which Succinct Labs optimizes for developers.",
+      "SP1 Hypercube’s prover clusters require ~160 GPUs, costing $100k–$300k, which can limit participation and hinder full decentralization, despite its 5x cost efficiency over SP1 Turbo. No trusted setups or Layer 1 coordination needed!",
   },
   {
     question:
@@ -186,16 +187,17 @@ const questions = [
       "Blobs are temporary (pruned after ~18 days), risking data unavailability for CLOB order books, which can disrupt state reconstruction in zkRollups. SP1 mitigates this with efficient proofs, but hybrid storage solutions are often needed.",
   },
   {
-    question: "What is a key feature of Succinct Labs' SP1 Hypercube?",
+    question:
+      "How does a zkVM like SP1 optimize proof generation for Ethereum smart contracts compared to a circuit-based ZKP system?",
     options: [
-      "Real-time proving for Ethereum",
-      "NFT minting",
-      "Smart contract deployment",
-      "Data encryption",
+      "It uses a general-purpose RISC-V architecture to prove arbitrary code.",
+      "It relies on custom circuits tailored for each smart contract.",
+      "It offloads proof generation to Ethereum’s Layer 1.",
+      "It converts smart contracts to non-ZK proofs.",
     ],
     correct: 0,
     explanation:
-      "SP1 Hypercube delivers real-time ZKP proving for Ethereum, with up to 5x better latency and cost.",
+      "zkVMs like SP1 use a general-purpose RISC-V architecture to prove arbitrary Ethereum smart contract code, offering flexibility over circuit-based ZKPs, which require custom circuits per contract. SP1’s precompiles boost efficiency, no Layer 1 offloading needed!",
   },
   {
     question:
@@ -421,7 +423,7 @@ async function renderLeaderboard() {
     const q = query(
       collection(db, "leaderboard"),
       orderBy("score", "desc"),
-      limit(10)
+      limit(20)
     );
     const snapshot = await getDocs(q);
     const globalData = snapshot.docs.map((doc) => doc.data());
